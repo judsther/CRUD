@@ -1,6 +1,5 @@
 <?php
 
-use function Laravel\Prompts\alert;
 
 require_once 'models/UserAccommodation.php';
 
@@ -18,7 +17,7 @@ require_once 'models/UserAccommodation.php';
             $userId = $_SESSION['user_id'];
             $accommodationId = $_POST['accommodation_id'];
     
-            // Conexión a la base de datos (usa tu método preferido para esto)
+            // Conexión a la base de datos 
             $db = new Database();
             $conn = $db->getConnection();
     

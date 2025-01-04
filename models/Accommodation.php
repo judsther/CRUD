@@ -4,8 +4,8 @@ class Accommodation {
     private $db;
 
     public function __construct() {
-        require_once 'Database.php'; // Asegúrate de que este archivo exista y sea correcto
-        $this->db = (new Database())->connect(); // Conexión a la base de datos
+        require_once 'Database.php'; 
+        $this->db = (new Database())->connect(); 
     }
 
     // Obtener todos los alojamientos
@@ -13,7 +13,7 @@ class Accommodation {
         $query = 'SELECT * FROM accommodations';
         $stmt = $this->db->prepare($query);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC); // Devuelve todos los resultados como un array asociativo
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); 
     }
 
     // Obtener un alojamiento por ID
@@ -22,7 +22,7 @@ class Accommodation {
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC); // Devuelve un solo resultado como un array asociativo
+        return $stmt->fetch(PDO::FETCH_ASSOC); 
     }
 
     // Crear un nuevo alojamiento
@@ -32,7 +32,7 @@ class Accommodation {
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':image', $image);
-        return $stmt->execute(); // Devuelve true si la inserción fue exitosa
+        return $stmt->execute(); 
     }
 
     // Actualizar un alojamiento
@@ -43,7 +43,7 @@ class Accommodation {
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':image', $image);
-        return $stmt->execute(); // Devuelve true si la actualización fue exitosa
+        return $stmt->execute(); 
     }
 
     // Eliminar un alojamiento
@@ -51,6 +51,6 @@ class Accommodation {
         $query = 'DELETE FROM accommodations WHERE id = :id';
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        return $stmt->execute(); // Devuelve true si la eliminación fue exitosa
+        return $stmt->execute(); 
     }
 }

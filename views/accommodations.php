@@ -30,7 +30,7 @@ $accommodations = $controller->getAllAccommodations();
                             <h5 class="card-title"><?php echo htmlspecialchars($accommodation['name'] ?? 'N/A'); ?></h5>
                             <p class="card-text">Price: $<?php echo htmlspecialchars($accommodation['price'] ?? '0.00'); ?></p>
                             <p class="card-text"><?php echo htmlspecialchars($accommodation['description'] ?? 'Sin descripción.'); ?></p>
-                            <button type="submit" class="btn btn-primary">Add</button>
+            
                      
                             <!-- Formulario para añadir alojamiento -->
                     <form action="index.php?page=addAccommodation" method="POST">

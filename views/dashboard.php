@@ -28,6 +28,7 @@ $accommodations = $model->getUserAccommodations($userId);
         <div class="row">
             <!-- Barra de navegación -->
             <?php include('layouts/navbar.php'); ?>
+
             <!-- Contenido principal del dashboard -->
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
                 <h1 class="h2">My Profile</h1>
@@ -37,7 +38,7 @@ $accommodations = $model->getUserAccommodations($userId);
                     Welcome <?php echo $_SESSION['username']; ?>!
                 </div>
 
-                <!-- Aquí puedes agregar más contenido del dashboard -->
+                
                 <div class="container mt-4">
     <h2>Your Saved Accommodations</h2>
     <div class="row">
@@ -58,7 +59,7 @@ $accommodations = $model->getUserAccommodations($userId);
         <?php endforeach; ?>
     </div>
 </div>
-                    <!-- Otros widgets -->
+                
                 </div>
             </main>
         </div>
