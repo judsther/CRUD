@@ -8,9 +8,9 @@
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="index.php?page=accommodations">Accommodations</a>
         <a class="nav-link" href="index.php?page=dashboard">Profile</a>
-        <a class="nav-link" href="views/register.php">Sign In</a>
-        <a class="nav-link" href="views/login.php">Log In</a>
-        <a class="nav-link" href="logout.php">Logout</a>
+       <!-- <a class="nav-link" href="views/register.php">Register</a> -->
+       <!-- <a class="nav-link" href="views/login.php">Log In</a> -->
+        <a class="nav-link" href="logout.php">Log Out</a>
                     
       </div>
     </div>

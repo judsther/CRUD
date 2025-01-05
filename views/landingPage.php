@@ -16,6 +16,31 @@ $accommodations = $controller->getAllAccommodations();
 </head>
 <body>
 <?php include('layouts/navbar.php'); ?>
+
+<section>
+     <div class="position-relative"> 
+    
+        <img class="w-100" src="https://i.pinimg.com/1200x/f0/3d/62/f03d62aad467da42b4f12730fa5f364d.jpg" alt="">
+
+        <div class="position-absolute mt-5 top-50 start-50 translate-middle">
+
+        <h1 class="text-light fw-bold text-shadow text-center" style="font-size: 4rem;" >Where next?</h1>
+
+        <h2 class="text-light text-center  fw-semibold text-shadow" style="font-size: 18pt;" >Save your favorite accommodations all around the word for your next trip!</h2>
+        
+        <div class="d-flex justify-content-center pt-2">
+
+        <button class="btn btn-dark">
+       <a class="nav-link" href="views/register.php">Register</a>
+      </button>
+       <button class="btn btn-light ms-3"><a class="nav-link text-secondary" href="views/login.php">Log In</a></button>
+      
+       </div>
+       </div>
+        </div>
+    
+</section>
+
     <div class="container my-5">
         <h1 class="text-center mb-4">Find Your Home Away from Home</h1>
         <div class="row">
