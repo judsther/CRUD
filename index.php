@@ -10,24 +10,22 @@ require_once 'controller/AccommodationController.php';
 session_start();
 
 // Páginas permitidas
-$validPages = ['landing', 'accommodations', 'dashboard', 'addAccommodation', 'removeAccommodation'];
+$validPages = ['landing', 'accommodations', 'dashboard', 'addAccommodation', 'removeAccommodation', 'createAccommodation', 'editAccommodation'];
 $page = isset($_GET['page']) && in_array($_GET['page'], $validPages) ? $_GET['page'] : 'landing';
 
 // Controlador y vista según la página
 switch ($page) {
-
     case 'landing':
         include 'views/landingPage.php';
         break;
 
-        case 'createAccommodation':
-            require_once 'controller/AccommodationController.php';
-            $controller = new AccommodationController();
-            $controller->createAccommodation();
-            include 'views/createAccommodation.php';
-            break;
+    case 'createAccommodation':
+        $controller = new AccommodationController();
+        $controller->createAccommodation();
+        include 'views/createAccommodation.php';
+        break;
 
-        case 'editAccommodation':  
+    case 'editAccommodation':  
         include 'views/editAccommodation.php';
         break;
 
@@ -51,7 +49,6 @@ switch ($page) {
         $controller->addAccommodation();
         header("Location: index.php?page=dashboard");
         exit();
-        break;
 
     case 'removeAccommodation':
         require_once 'controller/UserAccommodationController.php';
@@ -59,10 +56,22 @@ switch ($page) {
         $controller->removeAccommodation();
         header("Location: index.php?page=dashboard");
         exit();
-        break;
+
+        case 'login':
+            include 'views/login.php';
+            break;
+        
+
+        case 'logout':
+            session_unset();
+            session_destroy();
+            header("Location: index.php?page=login");
+            exit();
+            
+   
+        
 
     default:
-        header("Location: index.php?page=landing");
+        echo "Error: La página solicitada no es válida.";
         exit();
-        break;
 }

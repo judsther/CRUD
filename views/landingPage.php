@@ -33,7 +33,8 @@ $accommodations = $controller->getAllAccommodations();
         <button class="btn btn-dark">
        <a class="nav-link" href="views/register.php">Register</a>
       </button>
-       <button class="btn btn-light ms-3"><a class="nav-link text-secondary" href="views/login.php">Log In</a></button>
+      
+      <a href="index.php?page=login" class="btn btn-primary">Log In</a>
       
        </div>
        </div>

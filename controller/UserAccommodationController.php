@@ -20,7 +20,7 @@ require_once 'models/UserAccommodation.php';
             $db = new Database();
             $conn = $db->getConnection();
     
-            // Inserta en la tabla que relaciona usuarios y alojamientos
+            // Insertando en la tabla que relaciona usuarios y alojamientos
             $stmt = $conn->prepare("INSERT INTO user_accommodations (user_id, accommodation_id) VALUES (:user_id, :accommodation_id)");
             $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
             $stmt->bindValue(':accommodation_id', $accommodationId, PDO::PARAM_INT);

@@ -5,7 +5,7 @@ class Accommodation {
 
     public function __construct() {
         require_once 'Database.php'; 
-        $this->db = (new Database())->connect(); 
+        $this->db = (new Database())->getConnection(); 
     }
 
     // Obtener todos los alojamientos
