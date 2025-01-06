@@ -22,6 +22,8 @@ switch ($page) {
 
         case 'createAccommodation':
             require_once 'controller/AccommodationController.php';
+            $controller = new AccommodationController();
+            $controller->createAccommodation();
             include 'views/createAccommodation.php';
             break;
 
