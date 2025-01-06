@@ -29,6 +29,8 @@ $accommodations = $model->getUserAccommodations($userId);
 
     <div class="alert alert-success">
                     Welcome <?php echo $_SESSION['username']; ?>!
+
+                    <a href="views/createAccommodation.php" class="btn btn-success">Create Accommodation</a>
                 </div>
    </div>
     </div>

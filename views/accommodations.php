@@ -37,6 +37,8 @@ $accommodations = $controller->getAllAccommodations();
                         <input type="hidden" name="accommodation_id" value="<?php echo htmlspecialchars($accommodation['id']); ?>">
                         <button type="submit" class="btn btn-primary">Add to Profile</button>
                     </form>
+
+                    <a href="views/editAccommodation.php" class="btn btn-primary">Edit</a>
                       
                             <?php if (isset($_GET['success'])): ?>
                             <div class="alert alert-success">Accommodation added successfully!</div>

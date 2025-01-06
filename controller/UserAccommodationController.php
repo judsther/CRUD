@@ -10,7 +10,6 @@ require_once 'models/UserAccommodation.php';
 
         public function addAccommodation() {
             if (!isset($_SESSION['user_id']) || !isset($_POST['accommodation_id'])) {
-                // Manejar errores: usuario no autenticado o alojamiento no especificado
                 return;
             }
     
@@ -33,9 +32,6 @@ require_once 'models/UserAccommodation.php';
         }
 
         
-    
-    
-
     public function removeAccommodation()
     {
         session_start();

@@ -26,13 +26,15 @@ class Accommodation {
     }
 
     // Crear un nuevo alojamiento
-    public function create($name, $price, $image = null) {
-        $query = 'INSERT INTO accommodations (name, price, image) VALUES (:name, :price, :image)';
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':price', $price);
-        $stmt->bindParam(':image', $image);
-        return $stmt->execute(); 
+    public function createAccommodation($name, $description, $location, $price, $image, $userId) {
+        $stmt = $this->db->prepare("INSERT INTO accommodations (name, description, location, price, image, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, NOW())");
+        $stmt->bind_param('sssdsd', $name, $description, $location, $price, $image, $userId);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // Actualizar un alojamiento

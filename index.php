@@ -15,8 +15,18 @@ $page = isset($_GET['page']) && in_array($_GET['page'], $validPages) ? $_GET['pa
 
 // Controlador y vista según la página
 switch ($page) {
+
     case 'landing':
         include 'views/landingPage.php';
+        break;
+
+        case 'createAccommodation':
+            require_once 'controller/AccommodationController.php';
+            include 'views/createAccommodation.php';
+            break;
+
+        case 'editAccommodation':  
+        include 'views/editAccommodation.php';
         break;
 
     case 'accommodations':
