@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'controller/AccommodationController.php';
 
 
@@ -31,9 +32,9 @@ $accommodations = $controller->getAllAccommodations();
         <div class="d-flex justify-content-center pt-2">
 
         <button class="btn btn-dark">
-       <a class="nav-link" href="views/register.php">Register</a>
+       <a class="nav-link" href="index.php?page=register">Register</a>
       </button>
-      
+
       <a href="index.php?page=login" class="btn btn-primary">Log In</a>
       
        </div>

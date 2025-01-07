@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['user_id'])) {
-    header("Location: index.php?page=dashboard");
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,17 +11,19 @@ if (isset($_SESSION['user_id'])) {
 
 <section class="container d-flex justify-content-center m-4">
     <div class="card p-2">
-    <h2>Login</h2>
-    <form class="form" action="login_process.php" method="POST">
-        <label class="form-label" for="email">Email:</label>
-        <input class="form-control" type="email" name="email" id="email" required><br><br>
-        
-        <label class="form-label" for="password">Password:</label>
-        <input class="form-control" type="password" name="password" id="password" required><br><br>
-        
-        <button class="btn btn-dark" type="submit">Login</button>
-    </form>
+        <h2>Login</h2>
+        <form class="form" action="login_process.php" method="POST">
+            <label class="form-label" for="email">Email:</label>
+            <input class="form-control" type="email" name="email" id="email" required><br><br>
+            
+            <label class="form-label" for="password">Password:</label>
+            <input class="form-control" type="password" name="password" id="password" required><br><br>
+            
+            <button class="btn btn-dark" type="submit">Login</button>
+        </form>
     </div>
-    </section>
+</section>
+
 </body>
 </html>
+

@@ -1,4 +1,12 @@
 <?php
+// Iniciar sesión
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    // Si ya está autenticado, redirigir al dashboard
+    header("Location: index.php?page=dashboard");
+    exit();
+}
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -6,11 +14,9 @@ error_reporting(E_ALL);
 // Cargar archivos necesarios
 require_once 'controller/AccommodationController.php';
 
-// Iniciar sesión
-session_start();
 
 // Páginas permitidas
-$validPages = ['landing', 'accommodations', 'dashboard', 'addAccommodation', 'removeAccommodation', 'createAccommodation', 'editAccommodation'];
+$validPages = ['landing', 'accommodations', 'dashboard', 'addAccommodation', 'removeAccommodation', 'createAccommodation', 'editAccommodation', 'login', 'logout', 'register'];
 $page = isset($_GET['page']) && in_array($_GET['page'], $validPages) ? $_GET['page'] : 'landing';
 
 // Controlador y vista según la página
@@ -36,10 +42,6 @@ switch ($page) {
         break;
 
     case 'dashboard':
-        if (!isset($_SESSION['user_id'])) {
-            header("Location: index.php?page=login");
-            exit();
-        }
         include 'views/dashboard.php';
         break;
 
@@ -58,9 +60,22 @@ switch ($page) {
         exit();
 
         case 'login':
-            include 'views/login.php';
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                require_once 'login_process.php';  // Incluir la lógica de procesamiento
+                // Si la sesión es exitosa, redirigir a dashboard
+                if (isset($_SESSION['user_id'])) {
+                    header("Location: index.php?page=dashboard");
+                    exit();
+                }
+            }
+            include 'views/login.php';  
             break;
-        
+
+            case 'register':
+
+                include 'views/register.php';  
+                break;            
+            
 
         case 'logout':
             session_unset();

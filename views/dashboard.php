@@ -1,9 +1,14 @@
 <?php
-require_once 'models/UserAccommodation.php';
 
-$userId = $_SESSION['user_id'];
-$model = new UserAccommodation();
-$accommodations = $model->getUserAccommodations($userId);
+session_start();
+
+
+require_once 'controller/AccommodationController.php';
+
+
+$controller = new AccommodationController();
+$accommodations = $controller->getAllAccommodations();
+
 ?>
 
 <!DOCTYPE html>

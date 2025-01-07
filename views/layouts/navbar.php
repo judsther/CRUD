@@ -10,7 +10,7 @@
         <a class="nav-link <?= $page === 'dashboard' ? 'active' : '' ?>" href="index.php?page=dashboard">Profile</a>
         <!-- <a class="nav-link <?= $page === 'register' ? 'active' : '' ?>" href="index.php?page=register">Register</a> -->
         <!-- <a class="nav-link <?= $page === 'login' ? 'active' : '' ?>" href="index.php?page=login">Log In</a> -->
-        <a class="nav-link <?= $page === 'logout' ? 'active' : '' ?>" href="index.php?page=logout">Log Out</a>
+        <a href="index.php?page=logout" class="btn btn-danger">Log Out</a>
       </div>
     </div>
   </div>
