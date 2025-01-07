@@ -1,10 +1,11 @@
 <?php
-session_start();
+
 require_once 'controller/AccommodationController.php';
 
 
 $controller = new AccommodationController();
 $accommodations = $controller->getAllAccommodations();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,12 +32,13 @@ $accommodations = $controller->getAllAccommodations();
         
         <div class="d-flex justify-content-center pt-2">
 
-        <button class="btn btn-dark">
+        <button class="btn btn-dark m-2">
        <a class="nav-link" href="index.php?page=register">Register</a>
       </button>
 
-      <a href="index.php?page=login" class="btn btn-primary">Log In</a>
-      
+      <button class="btn btn-light m-2">
+      <a class="nav-link" href="index.php?page=login">Log In</a>
+      </button>
        </div>
        </div>
         </div>

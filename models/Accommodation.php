@@ -3,6 +3,13 @@
 class Accommodation {
     private $db;
 
+    public $id;
+    public $name;
+    public $description;
+    public $location;
+    public $price;
+    public $image;
+
     public function __construct() {
         require_once 'Database.php'; 
         $this->db = (new Database())->getConnection(); 

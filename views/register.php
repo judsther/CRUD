@@ -12,7 +12,7 @@
     <section class="container d-flex justify-content-center m-5">
         <div class="card p-2">
     <h2>Register</h2>
-    <form class="form" action="register_process.php" method="POST">
+    <form class="form" action="index.php?page=register&action=process" method="POST">
         <label class="form-label" for="username">Username:</label>
         <input class="form-control" type="text" name="username" id="username" required><br><br>
         

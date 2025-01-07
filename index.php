@@ -2,18 +2,14 @@
 // Iniciar sesión
 session_start();
 
-if (isset($_SESSION['user_id'])) {
-    // Si ya está autenticado, redirigir al dashboard
-    header("Location: index.php?page=dashboard");
-    exit();
-}
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Cargar archivos necesarios
 require_once 'controller/AccommodationController.php';
-
+require_once 'controller/UserController.php'; // Asegúrate de cargar el controlador de usuario
 
 // Páginas permitidas
 $validPages = ['landing', 'accommodations', 'dashboard', 'addAccommodation', 'removeAccommodation', 'createAccommodation', 'editAccommodation', 'login', 'logout', 'register'];
@@ -59,32 +55,29 @@ switch ($page) {
         header("Location: index.php?page=dashboard");
         exit();
 
-        case 'login':
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                require_once 'login_process.php';  // Incluir la lógica de procesamiento
-                // Si la sesión es exitosa, redirigir a dashboard
-                if (isset($_SESSION['user_id'])) {
-                    header("Location: index.php?page=dashboard");
-                    exit();
-                }
-            }
-            include 'views/login.php';  
-            break;
+    case 'login':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Procesar el formulario de inicio de sesión
+            $userController = new UserController();
+            $userController->loginProcess();
 
-            case 'register':
+        }
+        include 'views/login.php';  
+        break;
 
-                include 'views/register.php';  
-                break;            
-            
+    case 'register':
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Procesar el formulario 
+            $userController = new UserController();
+            $userController->registerProcess();
+        }
+        include 'views/register.php';  
+        break;
 
-        case 'logout':
-            session_unset();
-            session_destroy();
-            header("Location: index.php?page=login");
-            exit();
-            
-   
-        
+    case 'logout':
+        $userController = new UserController();
+        $userController->logOut();
+        break;
 
     default:
         echo "Error: La página solicitada no es válida.";

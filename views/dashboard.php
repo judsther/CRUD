@@ -1,10 +1,9 @@
 <?php
 
-session_start();
-
+var_dump($_SESSION);
 
 require_once 'controller/AccommodationController.php';
-
+require_once 'controller/UserAccommodationController.php';
 
 $controller = new AccommodationController();
 $accommodations = $controller->getAllAccommodations();
