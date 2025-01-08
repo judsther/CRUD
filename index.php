@@ -49,12 +49,13 @@ switch ($page) {
         exit();
 
     case 'removeAccommodation':
-        require_once 'controller/UserAccommodationController.php';
-        $controller = new UserAccommodationController();
-        $controller->removeAccommodation();
+         require_once 'controller/UserAccommodationController.php';
+         $controller = new UserAccommodationController();
+         $controller->removeAccommodation();
+
         header("Location: index.php?page=dashboard");
         exit();
-
+        
     case 'login':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Procesar el formulario de inicio de sesión

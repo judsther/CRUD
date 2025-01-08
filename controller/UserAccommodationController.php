@@ -34,7 +34,6 @@ require_once 'models/UserAccommodation.php';
         
     public function removeAccommodation()
     {
-        session_start();
         if (isset($_POST['accommodation_id'], $_SESSION['user_id'])) {
             $userId = $_SESSION['user_id'];
             $accommodationId = $_POST['accommodation_id'];

@@ -8,6 +8,8 @@ require_once 'controller/UserAccommodationController.php';
 $controller = new AccommodationController();
 $accommodations = $controller->getAllAccommodations();
 
+
+
 ?>
 
 <!DOCTYPE html>

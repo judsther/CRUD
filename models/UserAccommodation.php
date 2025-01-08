@@ -21,7 +21,14 @@ class UserAccommodation
     {
         $stmt = $this->db->prepare("DELETE FROM user_accommodations WHERE user_id = ? AND accommodation_id = ?");
         $stmt->bind_param("ii", $userId, $accommodationId);
-        $stmt->execute();
+
+        if ($stmt->execute()) {
+            echo "<script>
+            alert('You have successfully removed it.');
+            </script>"; 
+        } else {
+            error_log("Error removing accommodation: " . $stmt->error);
+        }
         $stmt->close();
     }
 
